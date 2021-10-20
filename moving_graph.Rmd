@@ -22,7 +22,7 @@ ds2$total_time = ds2$stays_in_weekend_nights + ds2$stays_in_week_nights
 ds2$total_guests = ds2$adults + ds2$children
 
 plot<-ggplot(ds2,aes(lead_time,total_time, size = total_guests,color = arrival_date_month))+
-  geom_point(alpha = .7, show.legend = FALSE) +
+  geom_point(alpha = ".", show.legend = FALSE) +
   scale_size(range = c(2,12))+
   facet_wrap(~arrival_date_month)+
   labs(title = 'Year: {frame_time}')+
@@ -54,7 +54,7 @@ plot2<- ggplot(df,aes(gender,df$`math score`))+
   transition_states((df$`race/ethnicity`))
 
 
-animate(plot = plot2)
+animate(plot2)
 
 
 
