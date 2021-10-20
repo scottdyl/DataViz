@@ -30,6 +30,34 @@ plot<-ggplot(ds2,aes(lead_time,total_time, size = total_guests,color = arrival_d
   ease_aes('linear')
 
 animate(plot = plot)
+
 ```
 
+```{R}
+# moving graph
+library(ggplot2)
+library(gganimate)
+library(readr)
+library(tidyverse)
+library(Rcpp)
+library(png)
+library(gifski)
+df <- read_csv("StudentsPerformance.csv")
+ds2<- read.csv('hotel_bookings.csv')
+head(ds2)
+head(df)
 
+
+
+plot2<- ggplot(df,aes(gender,df$`math score`))+
+  geom_boxplot()+
+  transition_states((df$`race/ethnicity`))
+
+
+animate(plot = plot2)
+
+
+
+
+
+```
